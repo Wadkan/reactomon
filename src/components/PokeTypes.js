@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class PokemonsList extends Component {
+export class PokeTypes extends Component {
     render() {
         return (
             <div>
-                <p>LIST::::</p>
+                <p>Types::::</p>
             </div>
         )
     }
 }
 
-export default PokemonsList
+export default PokeTypes

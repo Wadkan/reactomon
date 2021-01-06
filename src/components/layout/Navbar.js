@@ -5,7 +5,7 @@ function Header() {
     return (
         <header style={headerStyle}>
             <h1>NAVBAR</h1>
-            <Link style={linkStyle} to="/">PokemonList</Link> | <Link style={linkStyle} to="/about">About</Link>
+            <Link style={linkStyle} to="/poke-list">Pokemons List</Link> | <Link style={linkStyle} to="/poke-types">Types</Link>
         </header>
     )
 }
