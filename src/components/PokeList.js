@@ -1,16 +1,18 @@
-import React from 'react'
+import PokeItem from './PokeItem';
 
-function PokeList(props) {
-    const pokes = props.pokeList;
-    const pokeListItems = pokes.map((poke) => <li>{poke.name}</li>);       
+const divStyle = {   
+    display: 'flex',
+    flexFlow: 'wrap'
+    }
 
-    return (
-        <div>
-            <ol>
-                {pokeListItems}
-            </ol>
-        </div>
-    )
-}
+    const PokeList = (props) => {
+        const getPokemons = () =>
+            props.pokeList.map((pokemon) => (
+                <PokeItem key={pokemon.url} name={pokemon.name} url={pokemon.url} />
+            ));
 
-export default PokeList
+            return <div style={divStyle}>{getPokemons()}</div>
+    };
+
+export default PokeList;
+

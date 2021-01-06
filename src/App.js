@@ -2,12 +2,11 @@ import './App.css';
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-// import {v4 as uuid} from "uuid"; 
 import axios from 'axios';
 
-import Navbar from './components/layout/Navbar'
+import Navbar from './components/layout/Navbar';
 import PokeList from './components/PokeList';
+import PokeDetail from './components/PokeDetail';
 import PokeTypes from './components/PokeTypes';
 
 class App extends Component{
@@ -30,15 +29,12 @@ class App extends Component{
           <div className="container">
             <Navbar />
             <Route path="/poke-list" render={props => (
-              <React.Fragment>
-                <PokeList pokeList={this.state.pokeList}/>
-              </React.Fragment>
-            )} />
+              <PokeList pokeList={this.state.pokeList}/>)} />
             <Route path="/poke-types" render={props => (
-              <React.Fragment>
-                <PokeTypes typeList={this.state.typeList}/>
-              </React.Fragment>
-            )} />
+              <PokeTypes typeList={this.state.typeList}/>)} />
+            <Route path='/pokemon/:id' render={props => (
+              <PokeDetail />
+            )}></Route>
           </div>
         </div>
       </Router>
