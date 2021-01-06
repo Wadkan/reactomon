@@ -12,39 +12,13 @@ import PokeTypes from './components/PokeTypes';
 
 class App extends Component{
   state = {
-    pokemons: []
+    pokeList: []
   }
 
   componentDidMount() {
     axios.get('https://pokeapi.co/api/v2/pokemon')
-    .then(res => this.setState({ pokemons: res.results }))
+    .then(res => this.setState({ pokeList: res.data.results }));
   }
-
-  // // Toggle Complete
-  // markComplete = (id) => {
-  //   this.setState({ todos: this.state.todos.map(todo => {
-  //     if(todo.id === id) {
-  //       todo.completed = !todo.completed
-  //     }
-  //     return todo
-  //   } )})
-  // }
-
-  // // Delete Todo
-  // delTodo = (id) => {
-  //   axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-  //     .then(res => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
-  // }
-
-  // // AddTodo
-  // addTodo = (title) => {
-  //   axios.post('https://jsonplaceholder.typicode.com/todos', {
-  //     title,
-  //     completed: false
-  //   })
-  //     .then(res => this.setState({ todos:
-  //       [...this.state.todos, res.data] }));
-  //   }
 
   render(){
     return (
@@ -54,8 +28,7 @@ class App extends Component{
             <Navbar />
             <Route path="/poke-list" render={props => (
               <React.Fragment>
-                <PokeList todos={this.state.todos} markComplete={this.markComplete}
-                delTodo={this.delTodo}/>
+                <PokeList pokeList={this.state.pokeList}/>
               </React.Fragment>
             )} />
             <Route path="/poke-types" render={props => (
