@@ -7,7 +7,7 @@ import axios from 'axios';
 import Navbar from './components/layout/Navbar';
 import PokeList from './components/PokeList';
 import PokeDetail from './components/PokeDetail';
-import PokeTypes from './components/PokeTypes';
+import PokeTypes from './components/TypeList';
 
 class App extends Component{
   state = {
