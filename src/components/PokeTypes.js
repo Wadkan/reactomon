@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class PokeTypes extends Component {
-    render() {
-        return (
-            <div>
-                <p>Types::::</p>
-            </div>
-        )
-    }
+function PokeTypes(props) {
+    const types = props.typeList;
+    const typeList = types.map((type) => <li detailsPage={type.url}>{type.name}</li>);
+    const typeListWithLinks = typeList.map((element) => )
+
+    return (
+        <div>
+            <ol>
+                {typeList}
+            </ol>
+        </div>
+    )
 }
 
-export default PokeTypes
+export default PokeTypes;

@@ -12,12 +12,15 @@ import PokeTypes from './components/PokeTypes';
 
 class App extends Component{
   state = {
-    pokeList: []
+    pokeList: [],
+    typeList: []
   }
 
   componentDidMount() {
     axios.get('https://pokeapi.co/api/v2/pokemon')
-    .then(res => this.setState({ pokeList: res.data.results }));
+      .then(res => this.setState({ pokeList: res.data.results }));
+    axios.get('https://pokeapi.co/api/v2/type')
+      .then(res => this.setState({ typeList: res.data.results }));
   }
 
   render(){
@@ -33,8 +36,7 @@ class App extends Component{
             )} />
             <Route path="/poke-types" render={props => (
               <React.Fragment>
-                <PokeTypes todos={this.state.todos} markComplete={this.markComplete}
-                delTodo={this.delTodo}/>
+                <PokeTypes typeList={this.state.typeList}/>
               </React.Fragment>
             )} />
           </div>
