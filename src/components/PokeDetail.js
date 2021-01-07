@@ -26,7 +26,7 @@ const PokemonDetail = props => {
 				setDefense(response.data.stats[2].base_stat)
 			}
 		);
-	});
+	}, [props.match.params]);
 	
 	const paragraphStyle = {
 		padding: '0.5rem 0rem 0.5rem 1rem',
